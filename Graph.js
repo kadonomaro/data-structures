@@ -38,30 +38,13 @@ const dots = [
 
 dots.forEach(dot => graph.addNode(dot));
 
-graph.addLine(dots[0], dots[1]);
-graph.addLine(dots[0], dots[2]);
-graph.addLine(dots[0], dots[3]);
-graph.addLine(dots[0], dots[4]);
-
-graph.addLine(dots[1], dots[0]);
-graph.addLine(dots[1], dots[2]);
-graph.addLine(dots[1], dots[3]);
-graph.addLine(dots[1], dots[4]);
-
-graph.addLine(dots[2], dots[0]);
-graph.addLine(dots[2], dots[1]);
-graph.addLine(dots[2], dots[3]);
-graph.addLine(dots[2], dots[4]);
-
-graph.addLine(dots[3], dots[0]);
-graph.addLine(dots[3], dots[1]);
-graph.addLine(dots[3], dots[2]);
-graph.addLine(dots[3], dots[4]);
-
-graph.addLine(dots[4], dots[0]);
-graph.addLine(dots[4], dots[1]);
-graph.addLine(dots[4], dots[2]);
-graph.addLine(dots[4], dots[3]);
+for (let i = 0; i < graph.nodes.length; i++) {
+    for (let j = 0; j < graph.nodes.length; j++) {
+        if (i !== j) {
+            graph.addLine(dots[i], dots[j]);
+        }
+    }
+}
 
 
 const canvas = document.querySelector('#canvas');
